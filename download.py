@@ -3,11 +3,12 @@
 
 # In this example: A Huggingface BERT model
 
-from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 def download_model():
     # do a dry run of loading the huggingface model, which will download weights
-    pipeline('fill-mask', model='bert-base-uncased')
+    AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-ko-en", use_fast=False)
+    AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-ko-en")
 
 if __name__ == "__main__":
     download_model()
